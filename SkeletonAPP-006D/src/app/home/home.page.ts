@@ -7,6 +7,16 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  message: string;
+  username: string = 'user';
+  password: string = 'aaaa';
+
+  constructor() {
+    this.message = 'Bienvenido desde Angular!'
+  }
+
+  validateLogin(){
+    console.log("Ejecutando validacion")
+  }
 
 }

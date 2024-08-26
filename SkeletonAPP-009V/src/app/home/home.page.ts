@@ -1,0 +1,37 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+
+@Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+})
+export class HomePage {
+
+  mainTitle: string;
+  subTitle: string;
+  welcomeMessage: string;
+  loginMessage!: string;
+  username!: string;
+  password!: string;
+
+  constructor(private router: Router) {
+    this.mainTitle = 'SkeletonAPP';
+    this.subTitle = 'Aqui comienza';
+    this.welcomeMessage = 'Bienvenido!'
+  }
+
+  validateLogin(){
+    console.log("Ejecutando validacion!")
+    if(this.username === 'admin'
+      && this.password === '12345') {
+      this.loginMessage = 'Inicio de sesion valido';
+      this.welcomeMessage = `Bienvenido ${this.username}`;
+      this.router.navigate(['/index']);
+    } else {
+      this.loginMessage = 'Inicio de sesion invalido';
+    }
+  }
+
+}
