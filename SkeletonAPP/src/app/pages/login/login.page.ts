@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +18,12 @@ export class LoginPage {
   validateLogin() {
     if (this.username === 'admin' 
       && this.password === '12345') {
-      this.router.navigate(['/home']);
+      let extras: NavigationExtras = {
+        state: {
+          user: this.username
+        }
+      }
+      this.router.navigate(['/home'], extras);
     } else {
       this.message = 'Login con error';
     }
