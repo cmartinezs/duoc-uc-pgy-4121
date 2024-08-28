@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +16,22 @@ export class HomePage {
   birthday!: string;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private alertController: AlertController
   ) {
     let state = this.router.getCurrentNavigation()?.extras?.state;
     if (state) {
       console.log(`User: ${state['user']}`)
       this.username = state['user'];
     }
+  }
+
+  async showInfo() {
+    const alert = await this.alertController.create({
+      header: 'Alerta!',
+      
+    });
+    alert.present();
   }
 
 }
