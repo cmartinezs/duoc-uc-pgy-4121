@@ -8,13 +8,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomePage {
 
+  username: string = 'guest';
+  name!: string;
+  lastname!: string;
+  edLevel!: string;
+  birthday!: string;
+
   constructor(
-    private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
     let state = this.router.getCurrentNavigation()?.extras?.state;
     if (state) {
       console.log(`User: ${state['user']}`)
+      this.username = state['user'];
     }
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -11,9 +12,12 @@ export class LoginPage {
 
   username!: string;
   password!: string;
-  message!: string;
+  welcomeMessage: string = 'Bienvenido!';
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private toastController: ToastController
+  ) {}
 
   validateLogin() {
     if (this.username === 'admin' 
@@ -23,10 +27,21 @@ export class LoginPage {
           user: this.username
         }
       }
+      this.toastMessage('Usuario y contraseña valido', 'success');
       this.router.navigate(['/home'], extras);
     } else {
-      this.message = 'Login con error';
+      this.toastMessage('Usuario y contraseña no valido', 'danger');
     }
+  }
+
+  async toastMessage(message: string, color: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 3000,
+      position: 'bottom',
+      color: color,
+    });
+    toast.present();
   }
 
 }

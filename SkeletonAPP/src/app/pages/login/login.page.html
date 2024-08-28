@@ -2,15 +2,15 @@
   <ion-toolbar>
     <ion-title class="ion-text-center">
       <h1>SkeletonAPP</h1>
-      <h6>subtitulo</h6>
+      <h6>Aqui comienza todo</h6>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header class="ion-no-border ion-text-center">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">{{welcomeMessage}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -22,18 +22,7 @@
       <ion-input label="Password" [(ngModel)]="password"></ion-input>
     </ion-item>
   </ion-list>
-  <ion-button expand="block" (click)="validateLogin()">Ingresa</ion-button>
-  <ion-list>
-    <ion-item>
-      {{message}}
-    </ion-item>
-    <ion-item>
-      <ion-button [routerLink]="['/home']">Ir a Home</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-button [routerLink]="['/profile']">Ir a Profile</ion-button>
-    </ion-item>
-  </ion-list>
-
-  
+  <ion-button expand="block" (click)="validateLogin()">
+    Ingresa
+  </ion-button>
 </ion-content>
