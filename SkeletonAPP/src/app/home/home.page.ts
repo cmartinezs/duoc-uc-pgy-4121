@@ -29,9 +29,16 @@ export class HomePage {
   async showInfo() {
     const alert = await this.alertController.create({
       header: 'Alerta!',
-      
+
     });
     alert.present();
+  }
+
+  clean(){
+    this.birthday = '';
+    this.name = '';
+    this.lastname = '';
+    this.edLevel = '';
   }
 
 }
