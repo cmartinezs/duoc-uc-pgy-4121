@@ -21,7 +21,10 @@
       <ion-input [(ngModel)]="password" label="Password" labelPlacement="floating" type="password"></ion-input>
     </ion-item>
   </ion-list>
-  <ion-button expand="block" (click)="validateLogin()">Ingresar</ion-button>
+  <ion-button expand="block" 
+  (click)="validateLogin()" [disabled]="!username && !password">
+    Ingresar
+  </ion-button>
   <div class="ion-text-center">
     <a class="a-link">Crea tu cuenta gratis</a>
   </div>

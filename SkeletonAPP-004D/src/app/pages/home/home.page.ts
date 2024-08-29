@@ -14,6 +14,8 @@ export class HomePage implements OnInit {
   educationLevel: string = '';
   birthday: string = '';
 
+  educationLevels: Map<string, string> = new Map<string, string>();
+
   constructor(
     private router: Router
   ) { 
@@ -21,6 +23,13 @@ export class HomePage implements OnInit {
     if(state){
       this.username = state['user'];
     }
+
+    this.educationLevels.set("pre","Pre Escolar");
+    this.educationLevels.set("basic","Ed basica");
+    this.educationLevels.set("medium","Ed Media");
+    this.educationLevels.set("superior","Ed Superior");
+    this.educationLevels.set("post","Postgrado");
+    this.educationLevels.set("doctor","Doctorado");
   }
 
   ngOnInit() {

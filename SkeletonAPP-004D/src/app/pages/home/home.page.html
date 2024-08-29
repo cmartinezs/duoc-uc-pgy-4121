@@ -22,12 +22,10 @@
     </ion-item>
     <ion-item>
       <ion-select label="Nivel Educacional" [(ngModel)]="educationLevel">
-        <ion-select-option value="pre">Pre Escolar</ion-select-option>
-        <ion-select-option value="basic">Ed Basica</ion-select-option>
-        <ion-select-option value="medium">Ed Media</ion-select-option>
-        <ion-select-option value="superior">Ed Superior</ion-select-option>
-        <ion-select-option value="postgrado">Postgrado</ion-select-option>
-        <ion-select-option value="doctor">Dcotorado</ion-select-option>
+        <ion-select-option *ngFor="let level of educationLevels | keyvalue" 
+        value="{{level.key}}">
+          {{level.value}}
+        </ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>

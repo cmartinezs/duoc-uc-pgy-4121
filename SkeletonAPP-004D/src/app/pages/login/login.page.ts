@@ -9,16 +9,14 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   message: string;
-  username: string;
-  password: string;
+  username!: string;
+  password!: string;
 
   constructor(
     private toastController: ToastController,
     private router: Router
   ) {
     this.message = 'Bienvenido!'
-    this.username = 'username';
-    this.password = 'password';
   }
 
   ngOnInit() {
