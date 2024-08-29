@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +10,13 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   message: string;
-  loginMessage: string = '';
   username: string;
   password: string;
 
-  constructor() {
+  constructor(
+    private toastController: ToastController,
+    private router: Router
+  ) {
     this.message = 'Bienvenido desde Angular!';
     this.username = 'user0'
     this.password = 'pwd0';
@@ -22,7 +26,7 @@ export class HomePage {
     return 'Bienvenido desde Angular! (funcion)';
   }
 
-  validateLogin(){
+  async validateLogin(){
     console.log("Ejecutando validacion!")
 
     const userdata: string = 'admin';
@@ -30,9 +34,26 @@ export class HomePage {
 
     if (userdata === this.username 
       && pwddata === this.password) {
-        this.loginMessage = 'Login exitoso';
+      this.showToastMessage('Login exitoso', 'success')
+      const extras: NavigationExtras = {
+        state: {
+          username: this.username
+        }
+      }
+
+      this.router.navigate(['/index'], extras)
     } else {
-      this.loginMessage = 'Login erroneo';
+      this.showToastMessage('Login erroneo', 'danger')
     }
+  }
+
+  async showToastMessage(message: string, color: string){
+    const toast = await this.toastController.create({
+      duration: 3000,
+      message: message,
+      position: 'bottom',
+      color: color
+    });
+    toast.present();
   }
 }
