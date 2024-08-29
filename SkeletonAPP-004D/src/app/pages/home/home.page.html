@@ -21,7 +21,7 @@
       <ion-input label="Apellido" labelPlacement="floating" [(ngModel)]="lastname"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-select label="Nivel Educacional">
+      <ion-select label="Nivel Educacional" [(ngModel)]="educationLevel">
         <ion-select-option value="pre">Pre Escolar</ion-select-option>
         <ion-select-option value="basic">Ed Basica</ion-select-option>
         <ion-select-option value="medium">Ed Media</ion-select-option>
@@ -42,9 +42,8 @@
       </ion-popover>
     </ion-item>
   </ion-list>
-  <ion-button>
-    
-  </ion-button>
+  <ion-button (click)="clean()">Limpiar</ion-button>
+  <ion-button>Mostrar</ion-button>
 </ion-content>
 <ion-footer>
   <ion-toolbar color="medium">

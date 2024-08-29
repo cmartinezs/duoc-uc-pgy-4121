@@ -26,4 +26,11 @@ export class HomePage implements OnInit {
   ngOnInit() {
   }
 
+  clean(){
+    this.name = '';
+    this.lastname = '';
+    this.educationLevel = '';
+    this.birthday = '';
+  }
+
 }
