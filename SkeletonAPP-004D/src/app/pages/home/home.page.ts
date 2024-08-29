@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 export class HomePage implements OnInit {
 
   username: string = 'guest'
+  name: string = '';
+  lastname: string = '';
+  educationLevel: string = '';
+  birthday: string = '';
 
   constructor(
     private router: Router
