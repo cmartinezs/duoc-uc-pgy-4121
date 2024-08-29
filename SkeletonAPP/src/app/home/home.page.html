@@ -1,6 +1,6 @@
 <ion-header [translucent]="true" class="ion-no-border">
-    <ion-toolbar>
-        <ion-title>home</ion-title>
+    <ion-toolbar color="medium">
+        <ion-title>SkeletonAPP</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -21,25 +21,22 @@
         </ion-item>
         <ion-item>
             <ion-select label="Nivel Educacional" [(ngModel)]="edLevel" placeholder="Elige una opción">
-                <ion-select-option value="basicaIncompleta">Básica Incompleta</ion-select-option>
-                <ion-select-option value="basicaCompleta">Básica Completa</ion-select-option>
-                <ion-select-option value="mediaIncompleta">Media Incompleta</ion-select-option>
-                <ion-select-option value="mediaCompleta">Media Completa</ion-select-option>
-                <ion-select-option value="superiorIncompleta">CFT/IP/Universitaria Incompleta</ion-select-option>
-                <ion-select-option value="superiorCompleta">CFT/IP/Universitaria Completa</ion-select-option>
-                <ion-select-option value="postgrado">Postgrado</ion-select-option>
-                <ion-select-option value="doctorado">Doctorado</ion-select-option>
+                <ion-select-option *ngFor="let level of edLevels | keyvalue"
+                value="level.key"> {{level.value}}
+                </ion-select-option>
             </ion-select>
         </ion-item>
         <ion-item>
-            <ion-input label="Fec. Nac." [(ngModel)]="birthday" readonly></ion-input>
+            <ion-input label="Fec. Nac." [(ngModel)]="birthday" readonly>
+            </ion-input>
             <ion-button fill="clear" id="open-datetime">
-                <ion-icon slot="icon-only" name="calendar"></ion-icon>
+                <ion-icon name="calendar"></ion-icon>
             </ion-button>
             <ion-popover trigger="open-datetime" triggerAction="click">
                 <ng-template>
                     <ion-datetime [(ngModel)]="birthday" locale="es-ES"
-                                  [showDefaultButtons]="true" presentation="date"></ion-datetime>
+                                  [showDefaultButtons]="true" presentation="date">
+                    </ion-datetime>
                 </ng-template>
             </ion-popover>
         </ion-item>
@@ -48,7 +45,7 @@
     <ion-button (click)="showInfo()">Mostrar</ion-button>
 </ion-content>
 <ion-footer>
-    <ion-toolbar>
+    <ion-toolbar color="medium">
         <ion-title size="large">APP desarrollada por cmartinezs</ion-title>
     </ion-toolbar>
 </ion-footer>
