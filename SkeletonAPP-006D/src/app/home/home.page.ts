@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +12,10 @@ export class HomePage {
   message: string;
   username: string = 'user';
   password: string = 'aaaa';
-  loginMessage!: string;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private toastController: ToastController
   ) {
     this.message = 'Bienvenido desde Angular!'
   }
@@ -28,10 +29,27 @@ export class HomePage {
       this.username === userValid &&
       this.password === pwdValid
     ) {
-      this.loginMessage = 'Login correcto';
-      this.router.navigate(['/index'])
+      this.showToastMessage('Login correcto', 'success')
+
+      const extras: NavigationExtras = {
+        state: {
+          user: this.username
+        }
+      }
+
+      this.router.navigate(['/index'], extras)
     } else {
-      this.loginMessage = 'Login incorrecto';
+      this.showToastMessage('Login incorrecto', 'danger')
     }
+  }
+
+  async showToastMessage(message: string, color: string){
+    const toast = await this.toastController.create({
+      duration: 3000,
+      message,
+      color: color,
+      position: 'bottom'
+    });
+    toast.present()
   }
 }

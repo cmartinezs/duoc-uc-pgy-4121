@@ -30,16 +30,10 @@
 
       </ion-input>
     </ion-item>
-    <ion-item>
-      {{username}}<br>
-      {{password}}
-    </ion-item>
   </ion-list>
   <ion-button expand="block"
   (click)="validateLogin()">
     Ingresar
   </ion-button>
   <ion-button [routerLink]="['/profile']">Ir a profile</ion-button>
-  <br>
-  {{loginMessage}}
 </ion-content>
