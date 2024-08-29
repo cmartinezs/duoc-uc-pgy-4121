@@ -1,53 +1,54 @@
-<ion-header [translucent]="true"  class="ion-no-border">
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar>
+        <ion-title>home</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header class="ion-no-border">
-    <ion-toolbar class=" ion-text-center">
-      <ion-title size="large">Bienvenido!</ion-title>
-    </ion-toolbar>
-Usuario logueado: {{username}}
-  </ion-header>
+    <ion-header class="ion-no-border">
+        <ion-toolbar class=" ion-text-center">
+            <ion-title size="large">Bienvenido!</ion-title>
+        </ion-toolbar>
+        Usuario logueado: {{ username }}
+    </ion-header>
 
-  <ion-list>
-    <ion-item>
-      <ion-input label="Nombre" [(ngModel)]="name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Apellido" [(ngModel)]="lastname"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-select label="Nivel Educacional" [(ngModel)]="edLevel" placeholder="Elige una opción">
-        <ion-select-option value="basicaIncompleta">Básica Incompleta</ion-select-option>
-        <ion-select-option value="basicaCompleta">Básica Completa</ion-select-option>
-        <ion-select-option value="mediaIncompleta">Media Incompleta</ion-select-option>
-        <ion-select-option value="mediaCompleta">Media Completa</ion-select-option>
-        <ion-select-option value="superiorIncompleta">CFT/IP/Universitaria Incompleta</ion-select-option>
-        <ion-select-option value="superiorCompleta">CFT/IP/Universitaria Completa</ion-select-option>
-        <ion-select-option value="postgrado">Postgrado</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Fec. Nac." [(ngModel)]="birthday" readonly></ion-input>
-      <ion-button fill="clear" id="open-datetime">
-        <ion-icon slot="icon-only" name="calendar"></ion-icon>
-      </ion-button>
-      <ion-popover trigger="open-datetime" triggerAction="click">
-        <ng-template>
-          <ion-datetime [(ngModel)]="birthday" locale="es-ES"
-          [showDefaultButtons]="true" presentation="date"></ion-datetime>
-        </ng-template>
-      </ion-popover>
-    </ion-item>
-  </ion-list>
-  <ion-button (click)="clean()">Limpiar</ion-button>
-  <ion-button (click)="showInfo()">Mostrar</ion-button>
+    <ion-list>
+        <ion-item>
+            <ion-input label="Nombre" [(ngModel)]="name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input label="Apellido" [(ngModel)]="lastname"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-select label="Nivel Educacional" [(ngModel)]="edLevel" placeholder="Elige una opción">
+                <ion-select-option value="basicaIncompleta">Básica Incompleta</ion-select-option>
+                <ion-select-option value="basicaCompleta">Básica Completa</ion-select-option>
+                <ion-select-option value="mediaIncompleta">Media Incompleta</ion-select-option>
+                <ion-select-option value="mediaCompleta">Media Completa</ion-select-option>
+                <ion-select-option value="superiorIncompleta">CFT/IP/Universitaria Incompleta</ion-select-option>
+                <ion-select-option value="superiorCompleta">CFT/IP/Universitaria Completa</ion-select-option>
+                <ion-select-option value="postgrado">Postgrado</ion-select-option>
+                <ion-select-option value="doctorado">Doctorado</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-input label="Fec. Nac." [(ngModel)]="birthday" readonly></ion-input>
+            <ion-button fill="clear" id="open-datetime">
+                <ion-icon slot="icon-only" name="calendar"></ion-icon>
+            </ion-button>
+            <ion-popover trigger="open-datetime" triggerAction="click">
+                <ng-template>
+                    <ion-datetime [(ngModel)]="birthday" locale="es-ES"
+                                  [showDefaultButtons]="true" presentation="date"></ion-datetime>
+                </ng-template>
+            </ion-popover>
+        </ion-item>
+    </ion-list>
+    <ion-button (click)="clean()">Limpiar</ion-button>
+    <ion-button (click)="showInfo()">Mostrar</ion-button>
 </ion-content>
 <ion-footer>
-  <ion-toolbar>
-    <ion-title size="large">APP desarrollada por cmartinezs</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title size="large">APP desarrollada por cmartinezs</ion-title>
+    </ion-toolbar>
 </ion-footer>
