@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class IndexPage implements OnInit {
   username!: string;
+  birthday!: string;
+
 
   constructor(
     private router: Router

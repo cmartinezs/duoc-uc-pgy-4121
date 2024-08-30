@@ -21,7 +21,27 @@
     <ion-item>
       INPUT APELLIDO
     </ion-item>
+    <ion-item>
+      <ion-select label="Niv. Educacional">
+        <ion-select-option value="1">Ed. Basica</ion-select-option>
+        <ion-select-option value="2">Ed. Media</ion-select-option>
+        <ion-select-option value="3">Ed. Superior</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Fec. Nac." [(ngModel)]="birthday"></ion-input>
+      <ion-button id="btn_popover">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-button>
+      <ion-popover trigger="btn_popover" triggerAction="click">
+        <ng-template>
+          <ion-datetime [(ngModel)]="birthday"></ion-datetime>
+        </ng-template>
+      </ion-popover>
+    </ion-item>
   </ion-list>
+  <ion-button>Limpiar</ion-button>
+  <ion-button>Mostrar</ion-button>
 </ion-content>
 
 <ion-footer>
