@@ -1,9 +1,31 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>index</ion-title>
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="medium">
+    <ion-title>SkeletonAPP</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  {{username}}
+  <ion-list>
+    <ion-item lines="none">
+      <ion-title class="ion-text-center">
+        <h1>Bienvenido!</h1>
+      </ion-title>
+    </ion-item>
+    <ion-item lines="none">
+      Usuario: {{username}}
+    </ion-item>
+    <ion-item lines="none"></ion-item>
+    <ion-item>
+      INPUT NOMBRE
+    </ion-item>
+    <ion-item>
+      INPUT APELLIDO
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="medium">
+    <ion-title>APP Desarrollada por CMartinezS</ion-title>
+  </ion-toolbar>
+</ion-footer>
