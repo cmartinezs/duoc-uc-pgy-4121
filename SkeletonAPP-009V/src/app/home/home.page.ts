@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 
 @Component({
@@ -28,10 +28,15 @@ export class HomePage {
       && this.password === '12345') {
       this.loginMessage = 'Inicio de sesion valido';
       this.welcomeMessage = `Bienvenido ${this.username}`;
-      this.router.navigate(['/index']);
+
+      const extras: NavigationExtras = {
+        state: {
+          user: this.username
+        }
+      }
+      this.router.navigate(['/index'], extras);
     } else {
       this.loginMessage = 'Inicio de sesion invalido';
     }
   }
-
 }

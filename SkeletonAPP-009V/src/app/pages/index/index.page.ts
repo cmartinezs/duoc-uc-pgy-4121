@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexPage implements OnInit {
 
-  constructor() { }
+  username!: string;
+
+  constructor(
+    private router: Router
+  ) {
+    const state = this.router.getCurrentNavigation()?.extras.state;
+    if(state){
+      console.log(`Username: ${state['user']}`)
+      this.username = state['user']
+    }
+  }
 
   ngOnInit() {
   }
