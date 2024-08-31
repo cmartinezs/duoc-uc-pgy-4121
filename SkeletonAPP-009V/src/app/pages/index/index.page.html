@@ -6,8 +6,25 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item>
+    <ion-item lines="none">
+      <ion-title class="ion-text-center">Bienvenido</ion-title>
+    </ion-item>
+    <ion-item lines="none">
       Usuario: {{username}}
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Nombre"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Apellido"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-select label="N. Ed.">
+        <ion-select-option>Ed. PreEscolar</ion-select-option>
+        <ion-select-option>Ed. Basica</ion-select-option>
+        <ion-select-option>Ed. Media</ion-select-option>
+        <ion-select-option>Ed. Superior</ion-select-option>
+      </ion-select>
     </ion-item>
   </ion-list>
 </ion-content>
