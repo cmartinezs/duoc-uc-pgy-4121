@@ -13,6 +13,7 @@ export class IndexPage implements OnInit {
   lastname!: string;
   edLevel!: string;
   birthday!: string;
+  edLevels: Map<string, string> = new Map<string, string>
 
   constructor(
     private router: Router
@@ -22,6 +23,9 @@ export class IndexPage implements OnInit {
       console.log(`Username: ${state['user']}`)
       this.username = state['user']
     }
+    this.edLevels.set('0', 'Basica');
+    this.edLevels.set('1', 'Media');
+    this.edLevels.set('2', 'Superior');
   }
 
   ngOnInit() {

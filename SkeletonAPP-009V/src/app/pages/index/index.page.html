@@ -20,10 +20,8 @@
     </ion-item>
     <ion-item lines="none">
       <ion-select label="N. Ed." [(ngModel)]="edLevel">
-        <ion-select-option value="0">Ed. PreEscolar</ion-select-option>
-        <ion-select-option value="1">Ed. Basica</ion-select-option>
-        <ion-select-option value="2">Ed. Media</ion-select-option>
-        <ion-select-option value="3">Ed. Superior</ion-select-option>
+        <ion-select-option *ngFor="let level of edLevels | keyvalue" 
+        value="{{level.key}}">{{level.value}}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item lines="none">
