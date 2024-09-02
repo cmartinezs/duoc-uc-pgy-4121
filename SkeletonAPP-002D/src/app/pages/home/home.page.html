@@ -1,0 +1,55 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="medium">
+    <ion-title>SkeletonAPP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item lines="none">
+      <ion-title class="ion-text-center">Bienvenido</ion-title>
+    </ion-item>
+    <ion-item lines="none">
+      Usuario: {{username}}
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Nombre" [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Apellido" [(ngModel)]="lastname"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-select label="N. Ed." [(ngModel)]="edLevel">
+        <ion-select-option *ngFor="let level of edLevels | keyvalue" 
+        value="{{level.key}}">{{level.value}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="F. Nac." [(ngModel)]="birthday"></ion-input>
+      <ion-button fill="clear" id="btn_calendar">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-button>
+      <ion-popover trigger="btn_calendar" triggerAction="click">
+        <ng-template>
+          <ion-datetime [(ngModel)]="birthday"></ion-datetime>
+        </ng-template>
+      </ion-popover>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-button (click)="clean()">Limpiar</ion-button>
+      <ion-button id="alert_show">Mostrar</ion-button>
+      <ion-alert
+        trigger="alert_show"
+        header="Usuario"
+        message="Su nombre es {{name}} {{lastname}}"
+      ></ion-alert>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="medium">
+    <ion-title>APP Dessarollada por CMartinezS</ion-title>
+  </ion-toolbar>
+</ion-footer>
