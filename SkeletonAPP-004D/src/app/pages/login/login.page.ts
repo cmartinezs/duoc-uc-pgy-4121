@@ -49,7 +49,7 @@ export class LoginPage implements OnInit {
       position: 'bottom',
       color: color
     });
-    toast.present();
+    await toast.present();
   }
 
 }
