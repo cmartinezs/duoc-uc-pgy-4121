@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class IndexPage implements OnInit {
 
-  username!: string;
+  username: string = 'guest';
   name!: string;
   lastname!: string;
   edLevel!: string;

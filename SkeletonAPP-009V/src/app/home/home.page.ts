@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -16,7 +17,10 @@ export class HomePage {
   username!: string;
   password!: string;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private toastController: ToastController
+  ) {
     this.mainTitle = 'SkeletonAPP';
     this.subTitle = 'Aqui comienza';
     this.welcomeMessage = 'Bienvenido!'
@@ -26,7 +30,7 @@ export class HomePage {
     console.log("Ejecutando validacion!")
     if(this.username === 'admin'
       && this.password === '12345') {
-      this.loginMessage = 'Inicio de sesion valido';
+      this.showToastMessage('Inicio de sesion valido', 'success')
       this.welcomeMessage = `Bienvenido ${this.username}`;
 
       const extras: NavigationExtras = {
@@ -36,7 +40,17 @@ export class HomePage {
       }
       this.router.navigate(['/index'], extras);
     } else {
-      this.loginMessage = 'Inicio de sesion invalido';
+      this.showToastMessage('Inicio de sesion invalido', 'danger')
     }
+  }
+
+  async showToastMessage(text: string, msgColor: string){
+    const toast = await this.toastController.create({
+      message: text,
+      color: msgColor,
+      position: 'bottom',
+      duration: 3000
+    })
+    toast.present();
   }
 }
