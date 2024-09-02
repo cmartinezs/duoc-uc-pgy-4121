@@ -15,10 +15,13 @@
   </ion-header>
   <ion-list>
     <ion-item>
-      <ion-input [(ngModel)]="username" label="Username" labelPlacement="floating"></ion-input>
+      <ion-input [(ngModel)]="username" 
+      label="Username" labelPlacement="floating"
+      minlength="3" maxlength="8"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input [(ngModel)]="password" label="Password" labelPlacement="floating" type="password"></ion-input>
+      <ion-input [(ngModel)]="password" label="Password" labelPlacement="floating" 
+      type="password" minlength="4" maxlength="4"></ion-input>
     </ion-item>
   </ion-list>
   <ion-button expand="block" fill="outline"

@@ -27,7 +27,7 @@
     <ion-item lines="none">
       <ion-input label="F. Nac." [(ngModel)]="birthday"></ion-input>
       <ion-button fill="clear" id="btn_calendar">
-        <ion-icon name="calendar"></ion-icon>
+        <ion-icon name="calendar-number-outline"></ion-icon>
       </ion-button>
       <ion-popover trigger="btn_calendar" triggerAction="click">
         <ng-template>
@@ -41,7 +41,9 @@
       <ion-alert
         trigger="alert_show"
         header="Usuario"
+        subHeader="Informacion del usuario"
         message="Su nombre es {{name}} {{lastname}}"
+        [buttons]="alertButtons"
       ></ion-alert>
     </ion-item>
   </ion-list>

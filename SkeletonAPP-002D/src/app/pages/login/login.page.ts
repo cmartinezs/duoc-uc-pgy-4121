@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginPage implements OnInit {
 
   constructor(
     private toastController: ToastController,
-    private router: Router
+    private router: Router,
+    private loginService: LoginService
   ) {
     this.message = 'Bienvenido!'
   }
@@ -25,12 +27,16 @@ export class LoginPage implements OnInit {
   validateLogin(){
     console.log("ejecutando validacion")
 
-    const usernameValidation: string = 'admin';
-    const passwordValidation: string = '12345';
+    const login = this.loginService.findByUsername(this.username);
+
+    if(login === undefined){
+      this.generateMessage('Usuario no existe', 'danger');
+      return;
+    }
 
     if (
-      this.username === usernameValidation &&
-      this.password === passwordValidation
+      this.username === login.username &&
+      this.password === login.password
     ) {
       this.generateMessage('Login correcto', 'success');
       let extras: NavigationExtras = {

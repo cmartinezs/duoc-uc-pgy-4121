@@ -14,6 +14,7 @@ export class HomePage implements OnInit {
   edLevel!: string;
   birthday!: string;
   edLevels: Map<string, string> = new Map<string, string>
+  alertButtons = ['Ok'];
 
   constructor(
     private router: Router
@@ -23,9 +24,12 @@ export class HomePage implements OnInit {
       console.log(`Username: ${state['user']}`)
       this.username = state['user']
     }
+    this.edLevels.set('-1', 'Pre Basica');
     this.edLevels.set('0', 'Basica');
     this.edLevels.set('1', 'Media');
     this.edLevels.set('2', 'Superior');
+    this.edLevels.set('3', 'Magister');
+    this.edLevels.set('4', 'Doctorado');
   }
 
   ngOnInit() {
