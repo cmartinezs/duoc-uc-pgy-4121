@@ -1,0 +1,50 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="medium">
+    <ion-title>SkeletonAPP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header class="ion-no-border ion-text-center">
+    <ion-toolbar>
+      <ion-title size="large">Bienvenido!</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <ion-item lines="none">
+      Bienvenido: {{username}}
+    </ion-item>
+    <ion-item>
+      <ion-input label="Nombre" labelPlacement="floating" [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Apellido" labelPlacement="floating" [(ngModel)]="lastname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Nivel Educacional" [(ngModel)]="educationLevel">
+        <ion-select-option *ngFor="let level of educationLevels | keyvalue" 
+        value="{{level.key}}">
+          {{level.value}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Fec Nac" [(ngModel)]="birthday" readonly></ion-input>
+      <ion-button id="btn_calendar">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-button>
+      <ion-popover trigger="btn_calendar" triggerAction="click">
+        <ng-template>
+          <ion-datetime [(ngModel)]="birthday"></ion-datetime>
+        </ng-template>
+      </ion-popover>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="clean()">Limpiar</ion-button>
+  <ion-button>Mostrar</ion-button>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="medium">
+    <ion-title>App Desarrollada por CMartinezS</ion-title>
+  </ion-toolbar>
+</ion-footer>
