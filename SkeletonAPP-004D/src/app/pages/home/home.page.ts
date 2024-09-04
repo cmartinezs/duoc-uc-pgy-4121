@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
   lastname: string = '';
   educationLevel: string = '';
   birthday: string = '';
-  alertButtons = ['Ok'];
+  alertButtons = ['Close'];
 
   educationLevels: Map<string, string> = new Map<string, string>();
 
@@ -54,5 +54,4 @@ export class HomePage implements OnInit {
     });
     alert.present();
   }
-
 }
