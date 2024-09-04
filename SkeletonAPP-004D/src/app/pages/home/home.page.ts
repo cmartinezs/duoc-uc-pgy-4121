@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +14,13 @@ export class HomePage implements OnInit {
   lastname: string = '';
   educationLevel: string = '';
   birthday: string = '';
+  alertButtons = ['Ok'];
 
   educationLevels: Map<string, string> = new Map<string, string>();
 
   constructor(
-    private router: Router
+    private router: Router,
+    private alertController: AlertController,
   ) { 
     const state = this.router.getCurrentNavigation()?.extras?.state;
     if(state){
@@ -40,6 +43,16 @@ export class HomePage implements OnInit {
     this.lastname = '';
     this.educationLevel = '';
     this.birthday = '';
+  }
+
+  async showInfo(){
+    const alert = await this.alertController.create({
+      header: 'Usuario',
+      subHeader: '[controller]',
+      message: `El nombre del usuario es ${this.name} ${this.lastname}`,
+      buttons: this.alertButtons
+    });
+    alert.present();
   }
 
 }

@@ -41,7 +41,15 @@
     </ion-item>
   </ion-list>
   <ion-button (click)="clean()">Limpiar</ion-button>
-  <ion-button>Mostrar</ion-button>
+  <ion-button (click)="showInfo()">Mostrar (funcion)</ion-button>
+  <ion-button id="present-alert">Mostrar (componente)</ion-button>
+  <ion-alert
+    trigger="present-alert"
+    header="Usuario"
+    subHeader="[componente]"
+    message="El nombre del usuario es {{name}} {{lastname}}"
+    [buttons]="alertButtons"
+  ></ion-alert>
 </ion-content>
 <ion-footer>
   <ion-toolbar color="medium">
