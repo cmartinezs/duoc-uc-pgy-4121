@@ -10,6 +10,8 @@ export class LoginService {
     new User('admin', '12345'),
     new User('cmartinezs', '54321'),
     new User('other', '44332'),
+    new User('another', '443321'),
+    new User('anotherplus', '443321'),
   ]
 
   constructor() { }
