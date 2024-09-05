@@ -1,6 +1,11 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar color="medium">
     <ion-title>SkeletonAPP</ion-title>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -16,13 +21,13 @@
     </ion-item>
     <ion-item lines="none"></ion-item>
     <ion-item>
-      INPUT NOMBRE
+      <ion-input label="Nombre" [(ngModel)]="name"></ion-input>
     </ion-item>
     <ion-item>
-      INPUT APELLIDO
+      <ion-input label="Apellido" [(ngModel)]="lastname"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-select label="Niv. Educacional">
+      <ion-select label="Niv. Educacional" [(ngModel)]="edLevel">
         <ion-select-option value="1">Ed. Basica</ion-select-option>
         <ion-select-option value="2">Ed. Media</ion-select-option>
         <ion-select-option value="3">Ed. Superior</ion-select-option>
@@ -40,8 +45,15 @@
       </ion-popover>
     </ion-item>
   </ion-list>
-  <ion-button>Limpiar</ion-button>
-  <ion-button>Mostrar</ion-button>
+  <ion-button (click)="clean()">Limpiar</ion-button>
+  <ion-button id="btn_alert">Mostrar</ion-button>
+  <ion-alert trigger="btn_alert"
+    header="Usuario"
+    subHeader="Datos del usuario"
+    message="El nombre del usuario es {{name}} {{lastname}}"
+    [buttons]="alertButtons"
+  >
+  </ion-alert>
 </ion-content>
 
 <ion-footer>

@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
 })
 export class IndexPage implements OnInit {
   username!: string;
+  name!: string;
+  lastname!: string;
+  edLevel!: string;
   birthday!: string;
+  alertButtons: string[] = ['Ok']
 
 
   constructor(
@@ -22,6 +26,13 @@ export class IndexPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  clean(){
+    this.name = '';
+    this.lastname = '';
+    this.edLevel = ''
+    this.birthday = '';
   }
 
 }
