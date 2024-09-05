@@ -21,7 +21,7 @@ export class HomePage {
     private router: Router,
     private toastController: ToastController
   ) {
-    this.mainTitle = 'SkeletonAPP';
+    this.mainTitle = 'SkeletonAPP-008V';
     this.subTitle = 'Aqui comienza';
     this.welcomeMessage = 'Bienvenido!'
   }

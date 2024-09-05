@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'SkeletonAPP',
+  appName: 'SkeletonAPP-010D',
   webDir: 'www'
 };
 

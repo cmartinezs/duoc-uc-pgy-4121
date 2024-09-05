@@ -32,7 +32,9 @@ export class LoginPage implements OnInit {
     ) {
       this.generateMessage('Login correcto', 'success');
       let extras: NavigationExtras = {
-        state: { user: this.username }
+        state: { 
+          user: this.username 
+        }
       }
       this.router.navigate(['/home'], extras);
     } else {
@@ -44,7 +46,7 @@ export class LoginPage implements OnInit {
     const toast = await this.toastController.create({
       message: message,
       duration: 3000,
-      position: 'bottom',
+      position: 'middle',
       color: color
     });
     await toast.present();

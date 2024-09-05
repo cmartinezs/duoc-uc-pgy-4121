@@ -13,7 +13,7 @@ export class LoginPage {
   password!: string;
 
   constructor() {
-    this.mainTitle = 'SkeletonAPP!';
+    this.mainTitle = 'SkeletonAPP-008V!';
     this.subTitle = 'Aqui comienza todo desde nG';
   }
 
