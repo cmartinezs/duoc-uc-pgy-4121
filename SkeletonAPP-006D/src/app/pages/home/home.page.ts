@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +15,13 @@ export class HomePage implements OnInit {
   educationLevel: string = '';
   birthday: string = '';
 
+  alertButtons: string[] = ['Ok']
+
   educationLevels: Map<string, string> = new Map<string, string>();
 
   constructor(
-    private router: Router
+    private router: Router,
+    private alertController: AlertController
   ) { 
     const state = this.router.getCurrentNavigation()?.extras?.state;
     if(state){
@@ -40,6 +44,21 @@ export class HomePage implements OnInit {
     this.lastname = '';
     this.educationLevel = '';
     this.birthday = '';
+  }
+
+  async showAlert(){
+    let message = `El nombre del usuario es ${this.name} ${this.lastname}`
+    if(!this.name || !this.lastname){
+      message = 'Falta información por ingresar';
+    }
+
+    const alert = await this.alertController.create({
+      header: 'Usuario',
+      subHeader: '[controller]',
+      message: message,
+      buttons: this.alertButtons,
+    });
+    alert.present();
   }
 
 }
