@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-home',
@@ -15,16 +15,19 @@ export class HomePage {
   edLevel!: string;
   birthday!: string;
 
+  alertButtons: string[] = ['Ok']
+
   edLevels: Map<string, string> = new Map<string, string>
 
   constructor(
-    private router: Router,
+    private loginService: LoginService,
     private alertController: AlertController
   ) {
-    let state = this.router.getCurrentNavigation()?.extras?.state;
-    if (state) {
-      console.log(`User: ${state['user']}`)
-      this.username = state['user'];
+
+    const user = this.loginService.getLoggedUser()
+    if (user) {
+      console.log(`User: ${user.username}`)
+      this.username = user.username;
     }
 
     this.edLevels.set('pre', 'Pre Basica');
@@ -36,8 +39,10 @@ export class HomePage {
 
   async showInfo() {
     const alert = await this.alertController.create({
-      header: 'Alerta!',
-      message: `Datos del usuario: ${this.name} ${this.lastname}`
+      header: 'Usuario',
+      subHeader: '[Controller]',
+      message: `Datos del usuario: ${this.name} ${this.lastname}`,
+      buttons: this.alertButtons
     });
     alert.present();
   }
