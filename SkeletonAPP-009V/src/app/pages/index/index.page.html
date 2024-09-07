@@ -37,15 +37,16 @@
     </ion-item>
     <ion-item lines="none">
       <ion-button (click)="clean()">Limpiar</ion-button>
-      <ion-button id="alert_show">Mostrar</ion-button>
+      <ion-button id="alert_show">Mostrar (componente)</ion-button>
+      <ion-button (click)="showAlert()">Mostrar (controller) </ion-button>
       <ion-alert
         trigger="alert_show"
         header="Usuario"
+        subHeader="Datos del usuario"
         message="Su nombre es {{name}} {{lastname}}"
       ></ion-alert>
     </ion-item>
   </ion-list>
-
 </ion-content>
 
 <ion-footer>

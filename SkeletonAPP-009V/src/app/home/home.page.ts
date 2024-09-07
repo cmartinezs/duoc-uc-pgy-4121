@@ -21,9 +21,9 @@ export class HomePage {
     private router: Router,
     private toastController: ToastController
   ) {
-    this.mainTitle = 'SkeletonAPP-008V';
-    this.subTitle = 'Aqui comienza';
-    this.welcomeMessage = 'Bienvenido!'
+    this.mainTitle = 'SkeletonAPP-009V!!!';
+    this.subTitle = 'Aqui comienza!!!';
+    this.welcomeMessage = 'Bienvenido!!'
   }
 
   validateLogin(){
@@ -33,14 +33,18 @@ export class HomePage {
       this.showToastMessage('Inicio de sesion valido', 'success')
       this.welcomeMessage = `Bienvenido ${this.username}`;
 
-      const extras: NavigationExtras = {
-        state: {
-          user: this.username
-        }
-      }
+      const extras = this.createExtrasUser(this.username);
       this.router.navigate(['/index'], extras);
     } else {
       this.showToastMessage('Inicio de sesion invalido', 'danger')
+    }
+  }
+
+  createExtrasUser(u: string): NavigationExtras | undefined {
+    return {
+      state: {
+        user: u
+      }
     }
   }
 
