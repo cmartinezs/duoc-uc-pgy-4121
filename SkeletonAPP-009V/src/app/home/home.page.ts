@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { LoginService } from '../services/login.service';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class HomePage {
 
   constructor(
     private router: Router,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private loginService: LoginService
   ) {
     this.mainTitle = 'SkeletonAPP-009V!!!';
     this.subTitle = 'Aqui comienza!!!';
@@ -28,8 +30,9 @@ export class HomePage {
 
   validateLogin(){
     console.log("Ejecutando validacion!")
-    if(this.username === 'admin'
-      && this.password === '12345') {
+    if(
+      this.loginService.validateLogin(this.username, this.password)
+    ) {
       this.showToastMessage('Inicio de sesion valido', 'success')
       this.welcomeMessage = `Bienvenido ${this.username}`;
 
