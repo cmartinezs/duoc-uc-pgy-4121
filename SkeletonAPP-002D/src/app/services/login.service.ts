@@ -6,6 +6,8 @@ import { Login } from '../models/login';
 })
 export class LoginService {
 
+  loggedUser!: Login;
+
   logins: Login[] = [
     {
       username: 'admin',
@@ -25,5 +27,14 @@ export class LoginService {
 
   findByUsername(u: string): Login | undefined {
     return this.logins.find(l => l.username === u)
+  }
+
+  registerLoggedUser(login: Login){
+    this.loggedUser = login;
+  }
+
+  isAuthenticated(): boolean {
+    console.log(this.loggedUser)
+    return this.loggedUser !== undefined
   }
 }

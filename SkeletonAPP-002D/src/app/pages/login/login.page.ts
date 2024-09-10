@@ -39,6 +39,7 @@ export class LoginPage implements OnInit {
       this.password === login.password
     ) {
       this.generateMessage('Login correcto', 'success');
+      this.loginService.registerLoggedUser(login);
       let extras: NavigationExtras = {
         state: { user: this.username }
       }
@@ -47,6 +48,7 @@ export class LoginPage implements OnInit {
       this.generateMessage('Login fallido', 'danger');
     }
   }
+  
   async generateMessage(message: string, color: string){
     const toast = await this.toastController.create({
       message: message,
@@ -56,5 +58,4 @@ export class LoginPage implements OnInit {
     });
     await toast.present();
   }
-
 }
