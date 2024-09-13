@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Venta de Entradas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      Datos del usuario
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-input [(ngModel)]="nombre" label="Nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="apellido" label="Apellido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="edad" label="Edad"></ion-input>
+        </ion-item>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Datos de la compra
+    </ion-card-header>
+    <ion-card-content>
+     <ion-list>
+      <ion-item>
+        <ion-select [(ngModel)]="pelicula" label="Pelicula">
+          <ion-select-option value="Spiderman">Spiderman</ion-select-option>
+          <ion-select-option value="Thor">Thor</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-select [(ngModel)]="tipoEntrada" label="Tipo de entrada">
+          <ion-select-option value="2D">2D</ion-select-option>
+          <ion-select-option value="3D">3D</ion-select-option>
+          <ion-select-option value="4DX">4DX</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="cantidad" label="Cantidad"></ion-input>
+      </ion-item>
+     </ion-list>
+     <ion-button (click)="procesar()">Procesar</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="boleta">
+    <ion-card-header>
+      Detalle de la compra
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        Precio unitario: {{boleta.precioEntrada}}
+      </ion-item>
+      <ion-item>
+        Descuento x entrada: {{boleta.descuento}}
+      </ion-item>
+      <ion-item>
+        Total: {{boleta.calcularTotal()}}
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+    c: by cmartinezs
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
