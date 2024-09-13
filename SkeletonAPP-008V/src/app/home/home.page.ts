@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,8 @@ export class HomePage {
 
   constructor(
     private loginService: LoginService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private router: Router
   ) {
 
     const user = this.loginService.getLoggedUser()
@@ -52,6 +54,15 @@ export class HomePage {
     this.name = '';
     this.lastname = '';
     this.edLevel = '';
+  }
+
+  goToLogin(){
+    this.router.navigate(['/login']);
+  }
+
+  logout(){
+    this.loginService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

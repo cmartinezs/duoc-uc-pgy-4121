@@ -13,7 +13,7 @@ export class LoginService {
     new User('pepito', '12345'),
   ]
 
-  loggedUser!: User;
+  loggedUser!: User | undefined;
 
   constructor() { }
 
@@ -23,6 +23,7 @@ export class LoginService {
       const user = this.users[index];
       if(user.username === u && user.password === p){
         this.loggedUser = user;
+        localStorage.setItem('logged_user', user.username);
         return true;
       }
     }
@@ -34,7 +35,19 @@ export class LoginService {
     return this.users;
   }
 
-  getLoggedUser(): User {
+  getLoggedUser(): User | undefined {
+    if(!this.loggedUser) {
+      const username = localStorage.getItem('logged_user');
+      const found = this.users.find(el => el.username === username)
+      if(found !== undefined) {
+        this.loggedUser = found;
+      }
+    }
    return this.loggedUser;
+  }
+
+  logout() {
+    localStorage.removeItem('logged_user');
+    this.loggedUser = undefined;
   }
 }
