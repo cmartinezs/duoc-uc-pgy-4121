@@ -28,6 +28,7 @@
     "@capacitor/keyboard": "6.0.2",
     "@capacitor/status-bar": "6.0.1",
     "@ionic/angular": "^8.0.0",
+    "@ionic/storage-angular": "^4.0.0",
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -16,13 +16,34 @@ export class LoginPage implements OnInit {
   constructor(
     private toastController: ToastController,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private loadingController: LoadingController
   ) {
     this.message = 'Bienvenido!'
+    this.loadingController.create({
+      message: 'Cargando...'
+    }).then(async loading => {
+      loading.present()
+
+      await this.loginService.init()
+
+      
+
+      setTimeout(() => {
+        console.log('LoginService initialized');
+        if (this.loginService.isAuthenticated()) {
+          this.router.navigate(['/home']);
+        }
+        loading.dismiss()
+      }, 1500);
+    });
+    
   }
 
   ngOnInit() {
+
   }
+
 
   validateLogin(){
     console.log("ejecutando validacion")
@@ -40,10 +61,7 @@ export class LoginPage implements OnInit {
     ) {
       this.generateMessage('Login correcto', 'success');
       this.loginService.registerLoggedUser(login);
-      let extras: NavigationExtras = {
-        state: { user: this.username }
-      }
-      this.router.navigate(['/home'], extras);
+      this.router.navigate(['/home']);
     } else {
       this.generateMessage('Login fallido', 'danger');
     }

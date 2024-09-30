@@ -21,11 +21,11 @@ export class HomePage implements OnInit {
     private router: Router,
     private loginService: LoginService
   ) {
-    const state = this.router.getCurrentNavigation()?.extras.state;
-    if(state){
-      console.log(`Username: ${state['user']}`)
-      this.username = state['user']
+    const loggedUser = this.loginService.getLoggedUser()
+    if(loggedUser){
+      this.username = loggedUser.username;
     }
+
     this.edLevels.set('-1', 'Pre Basica');
     this.edLevels.set('0', 'Basica');
     this.edLevels.set('1', 'Media');
