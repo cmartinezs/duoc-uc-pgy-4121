@@ -1,6 +1,14 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar color="medium">
     <ion-title>SkeletonAPP</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/login">
+        <ion-icon name="log-in-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="logout()" slot="end">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

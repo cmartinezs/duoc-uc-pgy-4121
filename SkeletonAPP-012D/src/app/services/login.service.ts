@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { User } from '../models/user';
 export class LoginService {
 
   loggedUser!: User | null;
+  isLogged: boolean = false;
 
   users: User[] = [
     new User('admin', 'admin@ionic.com', '12345'),
@@ -14,7 +16,7 @@ export class LoginService {
     new User('other', 'other@ionic.com', '44555'),
   ];
 
-  constructor() { }
+  constructor(private storageService: StorageService) { }
 
   validateLogin(u: string, p: string): boolean {
     const found = this.users.find(user => user.username === u)
@@ -23,7 +25,8 @@ export class LoginService {
       const matchPwd = found.password === p;
       if (matchPwd) {
         this.loggedUser = found;
-        localStorage.setItem('loggedUser', JSON.stringify(this.loggedUser));
+        this.isLogged = true;
+        this.storageService.set('loggedUser', this.loggedUser);
       }
       return matchPwd
     }
@@ -33,18 +36,24 @@ export class LoginService {
 
   isAuthenticated(): boolean {
     console.log(this.loggedUser)
+    console.log(this.isLogged)
     console.log("user existe: " + (this.loggedUser !== undefined && this.loggedUser !== null))
     if(this.loggedUser === undefined || this.loggedUser === null){
-      const user = localStorage.getItem('loggedUser');
-      if(user){
-        this.loggedUser = JSON.parse(user);
+      const user = this.storageService.get('loggedUser');
+      console.log("user: " + user)
+      if(user) {
+        user.then(user => {
+          this.isLogged = true;
+          this.loggedUser = user;
+        });
       }
     }
-    return this.loggedUser !== undefined && this.loggedUser !== null;
+    return this.isLogged;
   }
 
   logout() {
     this.loggedUser = null;
-    localStorage.removeItem('loggedUser');
+    this.isLogged = false;
+    this.storageService.remove('loggedUser');
   }
 }

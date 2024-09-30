@@ -6,7 +6,7 @@ import { Login } from '../models/login';
 })
 export class LoginService {
 
-  loggedUser!: Login;
+  loggedUser!: Login | undefined;
 
   logins: Login[] = [
     {
@@ -31,6 +31,10 @@ export class LoginService {
 
   registerLoggedUser(login: Login){
     this.loggedUser = login;
+  }
+
+  logout() {
+    this.loggedUser = undefined;
   }
 
   isAuthenticated(): boolean {
