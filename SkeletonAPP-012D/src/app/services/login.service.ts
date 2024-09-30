@@ -6,7 +6,7 @@ import { User } from '../models/user';
 })
 export class LoginService {
 
-  loggedUser!: User;
+  loggedUser!: User | null;
 
   users: User[] = [
     new User('admin', 'admin@ionic.com', '12345'),
@@ -23,6 +23,7 @@ export class LoginService {
       const matchPwd = found.password === p;
       if (matchPwd) {
         this.loggedUser = found;
+        localStorage.setItem('loggedUser', JSON.stringify(this.loggedUser));
       }
       return matchPwd
     }
@@ -32,7 +33,18 @@ export class LoginService {
 
   isAuthenticated(): boolean {
     console.log(this.loggedUser)
-    console.log("user existe: " + (this.loggedUser !== undefined))
-    return this.loggedUser !== undefined;
+    console.log("user existe: " + (this.loggedUser !== undefined && this.loggedUser !== null))
+    if(this.loggedUser === undefined || this.loggedUser === null){
+      const user = localStorage.getItem('loggedUser');
+      if(user){
+        this.loggedUser = JSON.parse(user);
+      }
+    }
+    return this.loggedUser !== undefined && this.loggedUser !== null;
+  }
+
+  logout() {
+    this.loggedUser = null;
+    localStorage.removeItem('loggedUser');
   }
 }

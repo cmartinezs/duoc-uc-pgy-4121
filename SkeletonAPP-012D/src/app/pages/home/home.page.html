@@ -6,6 +6,11 @@
         <ion-icon name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirmLogout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -15,46 +20,67 @@
       <ion-title size="large">Bienvenido!</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-list>
-    <ion-item lines="none">
-      Bienvenido: {{username}}
-    </ion-item>
-    <ion-item>
-      <ion-input label="Nombre" labelPlacement="floating" [(ngModel)]="name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Apellido" labelPlacement="floating" [(ngModel)]="lastname"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-select label="Nivel Educacional" [(ngModel)]="educationLevel">
-        <ion-select-option *ngFor="let level of educationLevels | keyvalue" 
-        value="{{level.key}}">
-          {{level.value}}
-        </ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Fec Nac" [(ngModel)]="birthday" readonly></ion-input>
-      <ion-button id="btn_calendar">
-        <ion-icon name="calendar"></ion-icon>
-      </ion-button>
-      <ion-popover trigger="btn_calendar" triggerAction="click">
-        <ng-template>
-          <ion-datetime [(ngModel)]="birthday"></ion-datetime>
-        </ng-template>
-      </ion-popover>
-    </ion-item>
-  </ion-list>
-  <ion-button (click)="clean()">Limpiar</ion-button>
-  <ion-button (click)="showInfo()">Mostrar (funcion)</ion-button>
-  <ion-button id="present-alert">Mostrar (componente)</ion-button>
-  <ion-alert
-    trigger="present-alert"
-    header="Usuario"
-    subHeader="[componente]"
-    message="El nombre del usuario es {{name}} {{lastname}}"
-    [buttons]="alertButtons"
-  ></ion-alert>
+
+  <ion-segment class="bottom-part" (ionChange)="segmentChosen($event)" >
+    <ion-segment-button *ngFor="let name of segments">
+      <ion-label>{{name}}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-card *ngIf="selectedSegment === 'ion-sb-0'">
+    <ion-card-content>
+      <app-example></app-example>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="selectedSegment === 'ion-sb-1'">
+    <ion-card-content>
+      Sin contenido
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="selectedSegment === 'ion-sb-2'">
+    <ion-card-content>
+      <ion-list>
+        <ion-item lines="none">
+          Bienvenido: {{username}}
+        </ion-item>
+        <ion-item>
+          <ion-input label="Nombre" labelPlacement="floating" [(ngModel)]="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Apellido" labelPlacement="floating" [(ngModel)]="lastname"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-select label="Nivel Educacional" [(ngModel)]="educationLevel">
+            <ion-select-option *ngFor="let level of educationLevels | keyvalue" 
+            value="{{level.key}}">
+              {{level.value}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Fec Nac" [(ngModel)]="birthday" readonly></ion-input>
+          <ion-button id="btn_calendar">
+            <ion-icon name="calendar"></ion-icon>
+          </ion-button>
+          <ion-popover trigger="btn_calendar" triggerAction="click">
+            <ng-template>
+              <ion-datetime [(ngModel)]="birthday"></ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+      </ion-list>
+      <ion-button (click)="clean()">Limpiar</ion-button>
+      <ion-button (click)="showInfo()">Mostrar (funcion)</ion-button>
+      <ion-button id="present-alert">Mostrar (componente)</ion-button>
+      <ion-alert
+        trigger="present-alert"
+        header="Usuario"
+        subHeader="[componente]"
+        message="El nombre del usuario es {{name}} {{lastname}}"
+        [buttons]="alertButtons"
+      ></ion-alert>
+
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 <ion-footer>
   <ion-toolbar color="medium">

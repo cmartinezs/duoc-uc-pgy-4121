@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-home',
@@ -15,12 +16,14 @@ export class HomePage implements OnInit {
   educationLevel: string = '';
   birthday: string = '';
   alertButtons = ['Close'];
-
+  segments: string[] = ['Experiencia Laboral', 'Certificaciones', 'Mis Datos']
   educationLevels: Map<string, string> = new Map<string, string>();
+  selectedSegment: string = 'ion-sb-2';
 
   constructor(
     private router: Router,
     private alertController: AlertController,
+    private loginService: LoginService
   ) { 
     const state = this.router.getCurrentNavigation()?.extras?.state;
     if(state){
@@ -53,5 +56,35 @@ export class HomePage implements OnInit {
       buttons: this.alertButtons
     });
     alert.present();
+  }
+
+  segmentChosen(e: any) {
+    console.log(e.detail.value );
+    this.selectedSegment = e.detail.value;
+  }
+
+  confirmLogout(){
+    const alert = this.alertController.create({
+      header: 'Cerrar Sesión',
+      message: 'Está seguro de cerrar la sesión?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary'
+        }, {
+          text: 'Cerrar Sesión',
+          handler: () => {
+            this.logout();
+          }
+        }
+      ]
+    })
+    .then(a => a.present());
+  }
+
+  private logout(){
+    this.loginService.logout()
+    this.router.navigateByUrl('/login');
   }
 }
