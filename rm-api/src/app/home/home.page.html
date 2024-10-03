@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      RICK AND MORTY
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-label *ngIf="info">
+         Cantidad de elementos: {{ info.count }}
+        </ion-label>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let character of results">
+          <ion-avatar slot="start">
+            <img [src]="character.image" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ character.name }}</h2>
+            <h3>{{ character.species }}</h3>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

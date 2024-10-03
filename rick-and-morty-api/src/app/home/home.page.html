@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Rick And M0rty</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label *ngIf="info">Cantidad elementos: {{info.count}}</ion-label>
+      <ion-list>
+        <ion-item *ngFor="let item of results">
+          <ion-label>{{item.name}}</ion-label>
+          <img src="{{item.image}}" width="100px" height="100px"/>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   username: string = 'guest';
   name!: string;
@@ -26,17 +26,19 @@ export class HomePage {
     private router: Router
   ) {
 
-    const user = this.loginService.getLoggedUser()
-    if (user) {
-      console.log(`User: ${user.username}`)
-      this.username = user.username;
-    }
-
     this.edLevels.set('pre', 'Pre Basica');
     this.edLevels.set('basic', 'Ed Basica');
     this.edLevels.set('medium', 'Ed Media');
     this.edLevels.set('superior', 'Ed Superior');
     this.edLevels.set('post', 'Postgrado');
+  }
+
+  async ngOnInit(){
+    const user = await this.loginService.getLoggedUser()
+    if(user){
+      console.log(`User: ${user.username}`)
+      this.username = user.username;
+    }
   }
 
   async showInfo() {
@@ -64,5 +66,4 @@ export class HomePage {
     this.loginService.logout();
     this.router.navigate(['/login']);
   }
-
 }
