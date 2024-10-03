@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      RICK AND MORTY API
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <h1>Characters</h1>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let character of characters">
+          <ion-avatar slot="start">
+            <ion-img [src]="character.image"></ion-img>
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ character.name }}</h2>
+            <h3>{{ character.species }}</h3>
+
+          <ion-label> {{ character.status }} </ion-label>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
