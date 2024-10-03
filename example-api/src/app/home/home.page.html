@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      RICK AND MORTY
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Characters</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let character of characters">
+        <ion-avatar slot="start">
+          <img src="{{character.image}}" />
+        </ion-avatar>
+          {{character.name}}
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
