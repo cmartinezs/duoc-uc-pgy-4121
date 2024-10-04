@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'json-placeholder',
+    loadChildren: () => import('./pages/json-placeholder/json-placeholder.module').then( m => m.JsonPlaceholderPageModule)
+  },
 ];
 
 @NgModule({
