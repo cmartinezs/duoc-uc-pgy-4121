@@ -10,11 +10,24 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Rick And M0rty</ion-card-title>
+      <ion-card-title>Rick And Morty</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-label *ngIf="info">Cantidad elementos: {{info.count}}</ion-label>
+
       <ion-list>
+        <ion-item>
+          <ion-button (click)="backPage()" slot="start">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+          <ion-input type="number" [(ngModel)]="pageNumber"></ion-input>
+          <ion-button (click)="loadPage()" slot="end">
+            <ion-icon name="reload-outline"></ion-icon>
+          </ion-button>
+          <ion-button (click)="forwardPage()" slot="end">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </ion-button>
+        </ion-item>
         <ion-item *ngFor="let item of results">
           <ion-label>{{item.name}}</ion-label>
           <img src="{{item.image}}" width="100px" height="100px"/>
