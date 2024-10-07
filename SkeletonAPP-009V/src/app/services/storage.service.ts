@@ -7,12 +7,13 @@ import { Storage } from '@ionic/storage-angular';
 export class StorageService {
   private _storage: Storage | null = null;
 
-  constructor(private storage: Storage) {
-  }
+  constructor(private storage: Storage) { }
 
   async init() {
+    console.log("Initializing StorageService...");
     const storage = await this.storage.create();
     this._storage = storage;
+    console.log("initialized StorageService: ", this._storage !== null);
   }
 
   public set(key: string, value: any) {

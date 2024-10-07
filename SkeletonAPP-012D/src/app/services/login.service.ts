@@ -34,18 +34,15 @@ export class LoginService {
     return false;
   }
 
-  isAuthenticated(): boolean {
+  async isAuthenticated() {
     console.log(this.loggedUser)
     console.log(this.isLogged)
     console.log("user existe: " + (this.loggedUser !== undefined && this.loggedUser !== null))
     if(this.loggedUser === undefined || this.loggedUser === null){
-      const user = this.storageService.get('loggedUser');
-      console.log("user: " + user)
+      const user = await this.storageService.get('loggedUser');
       if(user) {
-        user.then(user => {
-          this.isLogged = true;
-          this.loggedUser = user;
-        });
+        console.log('LoginService found user in storage')
+        this.loggedUser = user;
       }
     }
     return this.isLogged;

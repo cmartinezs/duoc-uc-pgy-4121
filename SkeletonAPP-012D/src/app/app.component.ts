@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { StorageService } from './services/storage.service';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+    private platform: Platform,
+    private storageService: StorageService
+  ) {
+    this.initializeApp();
+  }
+
+  initializeApp() {
+    this.platform.ready().then((ready) => {
+      console.log("Platform ready: ", ready);
+      this.storageService.init();
+    });
+  }
 }

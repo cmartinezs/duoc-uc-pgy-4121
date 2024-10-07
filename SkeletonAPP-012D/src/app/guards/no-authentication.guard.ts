@@ -10,12 +10,12 @@ export class NoAuthenticationGuard implements CanActivate {
       private router: Router,
       private loginService: LoginService
   ){ }
-  canActivate(): boolean {
+  async canActivate() {
     
-    console.log('ejecutando guard!')
-    const auth = this.loginService.isAuthenticated();
+    console.log('ejecutando no-guard!')
+    const auth = await this.loginService.isAuthenticated();
     if (auth) {
-        console.log('usuario autenticado!')
+        console.log('usuario está autenticado!')
         this.router.navigate(['/home']);
     }
     return !auth;

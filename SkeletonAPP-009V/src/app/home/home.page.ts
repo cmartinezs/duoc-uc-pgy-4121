@@ -10,7 +10,7 @@ import { StorageService } from '../services/storage.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage {
 
   mainTitle: string;
   subTitle: string;
@@ -28,10 +28,6 @@ export class HomePage implements OnInit {
     this.mainTitle = 'SkeletonAPP-009V!!!';
     this.subTitle = 'Aqui comienza!!!';
     this.welcomeMessage = 'Bienvenido!!'
-  }
-
-  ngOnInit(): void {
-    this.storageService.init();
   }
 
   validateLogin(){

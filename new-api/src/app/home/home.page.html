@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Rick And Morty API
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Characters</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-buttons>
+        <ion-button slot="start" (click)="backPage()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+        <ion-input type="number" placeholder="Search" [(ngModel)]="pageNumber"></ion-input>
+        <ion-button (click)="getCharacters()">
+          <ion-icon name="search-outline"></ion-icon>
+        </ion-button>
+        <ion-button slot="end" (click)="forwardPage()">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-list>
+        <ion-item *ngFor="let character of results">
+          <ion-label>{{character.name}}</ion-label>
+          <ion-label>{{character.gender}}</ion-label>
+          <ion-label>{{character.species}}</ion-label>
+          <img src="{{character.image}}" width="50px" height="50px"
+          alt="character.name" slot="start" />
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
