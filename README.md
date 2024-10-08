@@ -1,9 +1,5 @@
 # PGY-4121
 
-## Act 1.1 - Iniciando un Proyecto Ionic
-
-## Act 1.2 - Modifiquemos el proyecto
-
 ## Ejercicio Práctico
 
 APP de Ventas de Entradas
@@ -22,16 +18,21 @@ Consideraciones:
 
 requisitos técnicos
 
-header y footer
-campos de formulario
-botones
-navegación
-alertas y/o mensajes emergentes
-animacion
-*ngFor
-ngModel
-logs
-services
+* header y footer
+* campos de formulario
+* botones
+* navegación
+* alertas y/o mensajes emergentes
+* animacion
+* *ngFor
+* ngModel
+* logs
+* services
 
 
 Se debe entregar el proyecto en github
+
+## Ejercicio Consumo de API
+Considerando la app base de consumo de Rick And Morty:
+1. Mejorar la navegacion, impidiendo que se pueda llegar a paginas negativas o inexistentes
+2. Para cada personaje de la lista, permitir ver el detalle de su información, lo que aparece en la api respectiva: https://rickandmortyapi.com/api/character/${id}, donde ${id} se debe reemplazar por el id del personaje
