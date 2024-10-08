@@ -30,6 +30,9 @@
         </ion-item>
         <ion-item *ngFor="let item of results">
           <ion-label>{{item.name}}</ion-label>
+          <ion-button fill="clear" [routerLink]="['/character-detail', item.id]">
+            <ion-icon name="options-outline"></ion-icon>
+          </ion-button>
           <img src="{{item.image}}" width="100px" height="100px"/>
         </ion-item>
       </ion-list>

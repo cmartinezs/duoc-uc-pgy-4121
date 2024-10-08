@@ -15,6 +15,15 @@ const routes: Routes = [
     path: 'json-placeholder',
     loadChildren: () => import('./pages/json-placeholder/json-placeholder.module').then( m => m.JsonPlaceholderPageModule)
   },
+  {
+    path: 'character-detail',
+    redirectTo: 'character-detail/0',
+    pathMatch: 'full'
+  },
+  {
+    path: 'character-detail/:id',
+    loadChildren: () => import('./pages/character-detail/character-detail.module').then( m => m.CharacterDetailPageModule)
+  },
 ];
 
 @NgModule({
