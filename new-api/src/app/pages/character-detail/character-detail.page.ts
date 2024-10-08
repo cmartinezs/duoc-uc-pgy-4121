@@ -17,6 +17,7 @@ export class CharacterDetailPage implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
 }

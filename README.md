@@ -1,5 +1,36 @@
 # PGY-4121
 
+## Como desplegar la apk desde Ionic
+
+1. Instalación de dependencias
+```bash
+npm install
+```
+2. Construcción de la aplicación (crea carpera www)
+```bash
+ionic build --prod 
+```
+3. Añadir la libreria capacitor/android (se debe realizar una sola vez)
+```bash
+npm install @capacitor/android
+```
+4. Añadir la plataforma android (crea carpeta android) (se debe realizar una sola vez)
+```bash
+npx cap add android
+```
+5. Sincronizar la aplicación con el proyecto de android
+```bash
+ionic capacitor sync android
+```
+6. Construir la aplicación en android y abre Android Studio
+```bash
+ionic capacitor build android --prod
+```
+7. Construir APK, en Android Studio
+```
+Menu: Build -> Build Bundle(s) / APK(s) -> Build APK(s)
+```
+
 ## Ejercicio Práctico
 
 APP de Ventas de Entradas

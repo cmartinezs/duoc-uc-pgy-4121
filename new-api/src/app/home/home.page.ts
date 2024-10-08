@@ -71,29 +71,11 @@ export class HomePage {
           const alert = this.alertController
             .create({
               header: 'Error',
-              message: 'Error al obtener los personajes',
+              message: 'Error al obtener los personajes. ' + error.error.error,
               buttons: ['OK']
             })
             .then(alert => alert.present());
         }
       })
-
-
-      /*.subscribe((data) => {
-        console.log("Data recibida:", data)
-        this.results = data.results;
-        loading.dismiss();
-      },(error) => {
-        console.error("Error al obtener los personajes:", error);
-        loading.dismiss();
-        const alert = this.alertController
-          .create({
-            header: 'Error',
-            message: 'Error al obtener los personajes',
-            buttons: ['OK']
-          })
-          .then(alert => alert.present());
-      });*/
   }
-
 }
