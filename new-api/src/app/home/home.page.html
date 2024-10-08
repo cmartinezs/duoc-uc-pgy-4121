@@ -12,6 +12,7 @@
       <ion-card-title>Characters</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      <ion-label>Page {{pageNumber}} of {{totalPages}}</ion-label>
       <ion-buttons>
         <ion-button slot="start" (click)="backPage()">
           <ion-icon name="arrow-back"></ion-icon>
@@ -25,7 +26,7 @@
         </ion-button>
       </ion-buttons>
       <ion-list>
-        <ion-item *ngFor="let character of results">
+        <ion-item *ngFor="let character of results" [routerLink]="['/character-detail', character.id]">
           <ion-label>{{character.name}}</ion-label>
           <ion-label>{{character.gender}}</ion-label>
           <ion-label>{{character.species}}</ion-label>

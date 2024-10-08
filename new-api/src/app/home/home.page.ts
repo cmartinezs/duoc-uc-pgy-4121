@@ -13,6 +13,7 @@ export class HomePage {
   results: Character[] = [];
 
   pageNumber: number = 1; 
+  totalPages: number = 1;
 
   constructor(
     private ramApiService: RamApiService,
@@ -25,6 +26,11 @@ export class HomePage {
   backPage(){
     if (this.pageNumber <= 1) {
       console.log("No se puede retroceder más");
+      this.alertController.create({
+        header: 'Error',
+        message: 'No se puede retroceder más',
+        buttons: ['OK']
+      }).then(alert => alert.present());
       return
     }
     this.pageNumber = this.pageNumber - 1;
@@ -32,8 +38,13 @@ export class HomePage {
   }
 
   forwardPage(){
-    if (this.pageNumber >= 100) {
+    if (this.pageNumber >= this.totalPages) {
       console.log("No se puede avanzar más");
+      this.alertController.create({
+        header: 'Error',
+        message: 'No se puede avanzar más',
+        buttons: ['OK']
+      }).then(alert => alert.present());
       return
     }
     this.pageNumber = this.pageNumber + 1;
@@ -47,7 +58,28 @@ export class HomePage {
     loading.present();
     this.ramApiService
       .getCharacters(this.pageNumber)
-      .subscribe((data) => {
+      .subscribe({
+        next: (data) => {
+          console.log("Data recibida:", data)
+          this.totalPages = data.info.pages;
+          this.results = data.results;
+          loading.dismiss();
+        }, 
+        error: (error) => {
+          console.error("Error al obtener los personajes:", error);
+          loading.dismiss();
+          const alert = this.alertController
+            .create({
+              header: 'Error',
+              message: 'Error al obtener los personajes',
+              buttons: ['OK']
+            })
+            .then(alert => alert.present());
+        }
+      })
+
+
+      /*.subscribe((data) => {
         console.log("Data recibida:", data)
         this.results = data.results;
         loading.dismiss();
@@ -61,7 +93,7 @@ export class HomePage {
             buttons: ['OK']
           })
           .then(alert => alert.present());
-      });
+      });*/
   }
 
 }
