@@ -71,7 +71,7 @@ export class HomePage {
           const alert = this.alertController
             .create({
               header: 'Error',
-              message: 'Error al obtener los personajes. ' + error.error.error,
+              message: `Error al obtener los personajes de la página ${this.pageNumber}: ${error?.error?.error}`,
               buttons: ['OK']
             })
             .then(alert => alert.present());
