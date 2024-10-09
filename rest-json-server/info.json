@@ -79,6 +79,14 @@
       "lastname": "Martinez",
       "email": "carlos@example.com",
       "age": 38
+    },
+    {
+      "id": 12,
+      "username": "cmartinez",
+      "name": "Carlos",
+      "lastname": "Martinez",
+      "email": "carlos@example.com",
+      "age": 38
     }
   ]
 }
