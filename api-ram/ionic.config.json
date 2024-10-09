@@ -1,7 +1,0 @@
-{
-  "name": "api-ram",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}

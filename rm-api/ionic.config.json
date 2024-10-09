@@ -1,7 +1,0 @@
-{
-  "name": "rm-api",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
