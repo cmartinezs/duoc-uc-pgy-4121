@@ -19,3 +19,11 @@ Se puden utilizar los metodos GET, POST, PUT y DELETE para interactuar con la ap
 2. La página principal debe mostrar la lista de usuarios.
 3. Se debe poder agregar un nuevo usuario mediante un boton en la pagina principal que lleve a la pagina de creación de usuario.
 4. Se debe poder eliminar un usuario desde la pagina principal con un boton de eliminar en cada fila.
+
+## Tutorial
+
+En el siguiente link se puede encontrar un tutorial para crear una api con json server:
+
+```bash
+https://code.tutsplus.com/es/fake-rest-api-up-and-running-using-json-server--cms-27871t
+```
