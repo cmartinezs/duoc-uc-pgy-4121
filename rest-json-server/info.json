@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "jdoe",
+      "name": "John",
+      "lastname": "Doe",
+      "email": "jdoe@example.com",
+      "age": 28
+    },
+    {
+      "id": 2,
+      "username": "asmith",
+      "name": "Alice",
+      "lastname": "Smith",
+      "email": "asmith@example.com",
+      "age": 34
+    },
+    {
+      "id": 3,
+      "username": "bwillis",
+      "name": "Bruce",
+      "lastname": "Willis",
+      "email": "bwillis@example.com",
+      "age": 45
+    },
+    {
+      "id": 4,
+      "username": "cmiller",
+      "name": "Chris",
+      "lastname": "Miller",
+      "email": "cmiller@example.com",
+      "age": 30
+    },
+    {
+      "id": 5,
+      "username": "djohnson",
+      "name": "Dana",
+      "lastname": "Johnson",
+      "email": "djohnson@example.com",
+      "age": 29
+    },
+    {
+      "id": 6,
+      "username": "ewilliams",
+      "name": "Emma",
+      "lastname": "Williams",
+      "email": "ewilliams@example.com",
+      "age": 38
+    },
+    {
+      "id": 7,
+      "username": "fmurphy",
+      "name": "Frank",
+      "lastname": "Murphy",
+      "email": "fmurphy@example.com",
+      "age": 41
+    },
+    {
+      "id": 8,
+      "username": "gking",
+      "name": "Grace",
+      "lastname": "King",
+      "email": "gking@example.com",
+      "age": 25
+    },
+    {
+      "id": 9,
+      "username": "hmorris",
+      "name": "Henry",
+      "lastname": "Morris",
+      "email": "hmorris@example.com",
+      "age": 33
+    },
+    {
+      "id": 11,
+      "username": "cmartinez",
+      "name": "Carlos",
+      "lastname": "Martinez",
+      "email": "carlos@example.com",
+      "age": 38
+    }
+  ]
+}

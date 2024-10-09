@@ -1,0 +1,7 @@
+{
+  "name": "rest-json-server",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
