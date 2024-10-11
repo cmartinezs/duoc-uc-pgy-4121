@@ -1,13 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>users</ion-title>
+    <ion-title>Users by JSON SERVER</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">users</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>List of Users</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <strong>Username</strong>
+          </ion-col>
+          <ion-col>
+            <strong>Name</strong>
+          </ion-col>
+          <ion-col>
+            <strong>Email</strong>
+          </ion-col>
+          <ion-col>
+            <strong>Acciones</strong>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let user of users">
+          <ion-col>
+            {{ user.username }}
+          </ion-col>
+          <ion-col>
+            {{ user.name }} {{user.lastname}}
+          </ion-col>
+          <ion-col>
+            {{ user.email }}
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="confirmDelete(user.id)">Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

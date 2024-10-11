@@ -12,7 +12,7 @@ export class UserService {
   ) { }
 
   getUsers(){
-    //return this.http.get<User[]>(aquilaurl);
+    return this.http.get<User[]>('http://localhost:3000/users');
   }
 
   getUser(userId: number){
@@ -24,6 +24,6 @@ export class UserService {
   }
 
   deleteUser(userId: number){
-    //return this.http.delete(aquilaurl + userId);
+    return this.http.delete('http://localhost:3000/users/' + userId);
   }
 }
