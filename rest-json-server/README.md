@@ -4,6 +4,12 @@
 
 Se debe levantar el servicio de json server para que este exponga el archivo info.json, el cual contiene la información de los usuarios.
 
+Pra instalar json-server se debe ejecutar el siguiente comando
+
+```bash
+npm install -g json-server
+```
+
 Para utilizar este servicio, se deben actualizar las librerias del proyecto
 ```bash
 npm install
