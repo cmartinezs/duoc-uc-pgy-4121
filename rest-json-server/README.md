@@ -2,7 +2,12 @@
 
 ## Descripción
 
-Se debe levantar el servicio de json server para que este exponga el archivo info.json, el cual contiene la información de los usuarios
+Se debe levantar el servicio de json server para que este exponga el archivo info.json, el cual contiene la información de los usuarios.
+
+Para utilizar este servicio, se deben actualizar las librerias del proyecto
+```bash
+npm install
+```
 Para levantar el servidor se debe ejecutar el siguiente comando:
 ```bash
 json-server info.json
