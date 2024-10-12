@@ -15,15 +15,19 @@ export class UserService {
     return this.http.get<User[]>('http://localhost:3000/users');
   }
 
-  getUser(userId: number){
+  getUser(userId: string){
     //return this.http.get<User>(aquilaurl + userId);
   }
 
-  postUser(newUser: User){
-    //return this.http.post<User>(aquilaurl, newUser);
+  getUserByUsername(username: string){
+    return this.http.get<User[]>('http://localhost:3000/users?username=' + username);
   }
 
-  deleteUser(userId: number){
+  postUser(newUser: User){
+    return this.http.post<User>('http://localhost:3000/users', newUser);
+  }
+
+  deleteUser(userId: string){
     return this.http.delete('http://localhost:3000/users/' + userId);
   }
 }

@@ -1,6 +1,14 @@
 {
   "users": [
     {
+      "id": "1",
+      "username": "cmartinez",
+      "name": "Carlos",
+      "lastname": "Martinez",
+      "email": "carlos@example.com",
+      "age": 34
+    },
+    {
       "id": "2",
       "username": "asmith",
       "name": "Alice",
@@ -39,6 +47,47 @@
       "lastname": "Murphy",
       "email": "fmurphy@example.com",
       "age": 41
+    },
+    {
+      "id": 9,
+      "username": "lserrano",
+      "name": "Luisa",
+      "lastname": "Serrano",
+      "email": "luisa@example.com",
+      "age": 38
+    },
+    {
+      "id": 9,
+      "username": "lserrano",
+      "name": "Luisa",
+      "lastname": "Serrano",
+      "email": "luisa@example.com",
+      "age": 38
+    },
+    {
+      "id": 9,
+      "username": "lserrano",
+      "name": "Luisa",
+      "lastname": "Serrano",
+      "email": "luisa@example.com",
+      "age": 38
+    },
+    {
+      "id": 9,
+      "username": "lserrano",
+      "name": "Luisa",
+      "lastname": "Serrano",
+      "email": "luisa@example.com",
+      "age": 38
+    },
+    {
+      "id": "9d08",
+      "username": "safgasdfasdf",
+      "name": "Luisa",
+      "lastname": "Serrano",
+      "email": "luisa@example.com",
+      "age": 38
     }
-  ]
+  ],
+  "classes": []
 }

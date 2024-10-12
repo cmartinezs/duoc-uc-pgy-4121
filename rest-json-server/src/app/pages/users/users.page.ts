@@ -27,7 +27,7 @@ export class UsersPage implements OnInit {
     });
   }
 
-  private deleteUser(userId: number) {
+  private deleteUser(userId: string) {
     this.userService.deleteUser(userId)
     .subscribe(() => {
       console.log('User deleted');
@@ -35,7 +35,7 @@ export class UsersPage implements OnInit {
     });
   }
 
-  confirmDelete(userId: number) {
+  confirmDelete(userId: string) {
     this.alertController.create({
       header: 'Delete User',
       message: 'Are you sure you want to delete this user?',
