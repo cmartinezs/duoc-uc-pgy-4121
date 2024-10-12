@@ -11,10 +11,10 @@ export class AuthenticationGuard implements CanActivate {
         private readonly loginService: LoginService
     ){ }
     async canActivate() {
-        console.log('ejecutando guard!')
+        console.log('Executing guard!')
         const auth = await this.loginService.isAuthenticated();
         if (!auth) {
-            console.log('usuario no autenticado!')
+            console.log('User is not authenticated, redirecting to Login!')
             await this.router.navigate(['/login']);
         }
         return auth;

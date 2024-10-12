@@ -7,16 +7,16 @@ import { LoginService } from '../services/login.service';
 })
 export class NoAuthenticationGuard implements CanActivate {
   constructor(
-      private router: Router,
-      private loginService: LoginService
+      private readonly router: Router,
+      private readonly loginService: LoginService
   ){ }
   async canActivate() {
-    
-    console.log('ejecutando no-guard!')
+
+    console.log('Executing no-guard!')
     const auth = await this.loginService.isAuthenticated();
     if (auth) {
-        console.log('usuario está autenticado!')
-        this.router.navigate(['/home']);
+        console.log('User is authenticated, redirecting to Home!')
+        await this.router.navigate(['/home']);
     }
     return !auth;
   }

@@ -25,10 +25,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'tos',
-    loadChildren: () => import('./pages/tos/tos.module').then( m => m.TosPageModule)
-  },
-  {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
