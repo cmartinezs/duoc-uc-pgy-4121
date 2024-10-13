@@ -8,9 +8,23 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import {StorageService} from "./services/storage.service";
+import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 
 export function initApp(storageService: StorageService) {
   return () => storageService.init();
+}
+
+export function routeReuseStrategy() {
+  return { provide: RouteReuseStrategy, useClass: IonicRouteStrategy };
+}
+
+export function storageService() {
+  return {
+    provide: APP_INITIALIZER,
+    useFactory: initApp,
+    deps: [StorageService],
+    multi: true,
+  };
 }
 
 @NgModule({
@@ -22,13 +36,9 @@ export function initApp(storageService: StorageService) {
     IonicStorageModule.forRoot()
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initApp,
-      deps: [StorageService],
-      multi: true,
-    }
+    routeReuseStrategy(),
+    storageService(),
+    provideHttpClient(withInterceptorsFromDi())
   ],
   bootstrap: [AppComponent],
 })

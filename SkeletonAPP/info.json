@@ -1,0 +1,136 @@
+{
+  "users":[
+    {
+      "id": "u1a2",
+      "username": "jdoe",
+      "password": "pass123",
+      "email": "jdoe@example.com"
+    },
+    {
+      "id": "a3b4",
+      "username": "asmith",
+      "password": "alice456",
+      "email": "asmith@example.com"
+    },
+    {
+      "id": "c5d6",
+      "username": "bwillis",
+      "password": "bruce789",
+      "email": "bwillis@example.com"
+    },
+    {
+      "id": "e7f8",
+      "username": "cmiller",
+      "password": "chris000",
+      "email": "cmiller@example.com"
+    },
+    {
+      "id": "g9h0",
+      "username": "djohnson",
+      "password": "dana321",
+      "email": "djohnson@example.com"
+    },
+    {
+      "id": "i1j2",
+      "username": "ewilliams",
+      "password": "emma654",
+      "email": "ewilliams@example.com"
+    },
+    {
+      "id": "k3l4",
+      "username": "fmurphy",
+      "password": "frank987",
+      "email": "fmurphy@example.com"
+    },
+    {
+      "id": "m5n6",
+      "username": "gking",
+      "password": "grace123",
+      "email": "gking@example.com"
+    },
+    {
+      "id": "o7p8",
+      "username": "hmorris",
+      "password": "henry456",
+      "email": "hmorris@example.com"
+    },
+    {
+      "id": "q9r0",
+      "username": "ijames",
+      "password": "isabella789",
+      "email": "ijames@example.com"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "p1a2",
+      "username": "jdoe",
+      "name": "John",
+      "lastname": "Doe",
+      "age": 28
+    },
+    {
+      "id": "b3c4",
+      "username": "asmith",
+      "name": "Alice",
+      "lastname": "Smith",
+      "age": 34
+    },
+    {
+      "id": "d5e6",
+      "username": "bwillis",
+      "name": "Bruce",
+      "lastname": "Willis",
+      "age": 45
+    },
+    {
+      "id": "f7g8",
+      "username": "cmiller",
+      "name": "Chris",
+      "lastname": "Miller",
+      "age": 30
+    },
+    {
+      "id": "h9i0",
+      "username": "djohnson",
+      "name": "Dana",
+      "lastname": "Johnson",
+      "age": 29
+    },
+    {
+      "id": "j1k2",
+      "username": "ewilliams",
+      "name": "Emma",
+      "lastname": "Williams",
+      "age": 38
+    },
+    {
+      "id": "l3m4",
+      "username": "fmurphy",
+      "name": "Frank",
+      "lastname": "Murphy",
+      "age": 41
+    },
+    {
+      "id": "n5o6",
+      "username": "gking",
+      "name": "Grace",
+      "lastname": "King",
+      "age": 25
+    },
+    {
+      "id": "p7q8",
+      "username": "hmorris",
+      "name": "Henry",
+      "lastname": "Morris",
+      "age": 33
+    },
+    {
+      "id": "r9s0",
+      "username": "ijames",
+      "name": "Isabella",
+      "lastname": "James",
+      "age": 27
+    }
+  ]
+}

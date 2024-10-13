@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {User} from '../models/user';
 import {StorageService} from './storage.service';
+import {UserService} from "./user.service";
+import {firstValueFrom} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -12,32 +14,28 @@ export class LoginService {
 
   private readonly logged_user_key = 'logged_user';
 
-  users: User[] = [
-    new User('admin', 'admin@ionic.com', '12345'),
-    new User('cmartinezs', 'cmartinezs@ionic.com', '54321'),
-    new User('other', 'other@ionic.com', '44555'),
-  ];
 
   constructor(
-    private readonly storageService: StorageService
+    private readonly storageService: StorageService,
+    private readonly userService: UserService
   ) { }
 
-  authenticate(u: string, p: string): boolean {
-    const found = this.users.find(user => user.username === u)
-    if (found !== undefined) {
+  async authenticate(u: string, p: string): Promise<User | null> {
+    const founds = await firstValueFrom(this.userService.findUserByUsername(u));
+
+    if (founds.length > 0) {
+      const found = founds[0]
       console.log('It found user: ', found.username)
       const matchPwd = found.password === p;
       if (matchPwd) {
         this.loggedUser = found;
         this.isLogged = true;
-        this.storageService
-          .set(this.logged_user_key, this.loggedUser)
-          .then(() => console.log('User stored'));
+        await this.storageService.set(this.logged_user_key, this.loggedUser);
       }
-      return matchPwd
+      return found
     }
     console.log('It didn\'t find user', u);
-    return false;
+    return null;
   }
 
   async isAuthenticated() {
