@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
 
@@ -7,9 +8,15 @@ import { Geolocation } from '@capacitor/geolocation';
 })
 export class GeolocationService {
 
-  constructor() { }
+  constructor(
+    private readonly http: HttpClient
+  ) { }
 
   getPosition() {
     return Geolocation.getCurrentPosition();
+  }
+
+  getAddress(lat: number, lng: number) {
+    return this.http.get<any>(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
   }
 }
