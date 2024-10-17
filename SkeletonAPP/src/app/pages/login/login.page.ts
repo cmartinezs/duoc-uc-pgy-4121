@@ -1,25 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import {User} from "../../models/user";
 import {ToastController} from "@ionic/angular";
 import {Router} from "@angular/router";
+import { GeolocationService } from 'src/app/services/geolocation.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage {
+export class LoginPage implements OnInit {
   message: string;
   username!: string;
   password!: string;
+  latitude: number = 0;
+  longitude: number = 0;
 
   constructor(
     private readonly toastController: ToastController,
     private readonly router: Router,
-    private readonly loginService: LoginService
+    private readonly loginService: LoginService,
+    private readonly geoService: GeolocationService
   ) {
     this.message = 'Bienvenido!'
+  }
+
+  ngOnInit(): void {
+      this.geoService
+        .getPosition()
+        .then(position => {
+          this.latitude = position.coords.latitude
+          this.longitude = position.coords.longitude
+        });
   }
 
   validateLogin(){
