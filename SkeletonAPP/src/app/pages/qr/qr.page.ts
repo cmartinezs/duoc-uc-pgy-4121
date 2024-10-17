@@ -15,6 +15,7 @@ export class QrPage implements OnInit {
 
   ngOnInit() {
     BarcodeScanner.isSupported().then((result) => {
+      console.log('Barcode scanning supported:', result.supported);
       this.isSupported = result.supported;
     });
   }
