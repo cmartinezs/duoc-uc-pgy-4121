@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NetworkService } from 'src/app/services/network.service';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ export class HomePage implements OnInit {
 
   constructor(
     private readonly networkService: NetworkService,
+    private readonly weatherService: WeatherService,
   ) {}
 
   ngOnInit(): void {
@@ -20,6 +22,8 @@ export class HomePage implements OnInit {
         console.log(`Quality status: ${status}`);
         this.qualityStatus = status
       });
+
+      this.weatherService.getWeather().then(() => console.log('Weather data fetched'));
   }
 
 }
